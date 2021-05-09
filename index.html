@@ -45,7 +45,7 @@
                         <a href="#testimonios" class="nav-link">Testimonios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contacto" class="nav-link">Contacto</a>
+                        <a href="#footer" class="nav-link">Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h2 class="mt-5">Agenia Digital encargada de la presencia digital de su empresa</h2>
+                    <h2 class="mt-5">Agencia Digital encargada de la presencia digital de su empresa</h2>
                     <p class="mt-5">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, ab? Optio amet velit voluptatum quas 
                         eligendi, minus, quisquam ullam in quidem maiores alias eaque fuga placeat impedit tempora officia sed ipsum 
@@ -225,6 +225,24 @@
     <!-- jQuery and Bootstrap Bundle -->
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        //Iniciar scrollspy
+        $('body').scrollspy({target: '#menu-navegacion'});
 
+        //Scroll suavizado
+        $('#menu-navegacion a').on('click', function(event){
+            if(this.hash != ""){
+                event.preventDefault();
+
+                const hash = this.hash;
+
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+                    window.location.hash = hash;
+                });
+            }
+        })
+    </script>
   </body>
 </html>
